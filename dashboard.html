@@ -1,0 +1,90 @@
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="jquery-3.2.1.js"></script>
+<link rel="stylesheet" type="text/css" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="header">
+  <img class="logo" src="capitalone_logo.png">
+  <span class="header_item" id="overall">Overall</span>
+  <span class="header_item" id="megan">Megan</span>
+  <span class="header_item" id="sid">Sid</span>
+  <span class="header_item" id="maj">Maj</span>
+  <span class="header_item" id="patrick">Patrick</span>
+  <span class="header_item" id="nick">Nick</span>
+  <span class="header_item" id="john">John</span>
+</div>
+
+<div class="graphs">
+  <div class="row">
+    <div class="graph_box" id="graph1">
+      <div class="title"></div><div class="graph"></div>
+    </div>
+    <div class="graph_box" id="graph2">
+      <div class="title"></div><div class="graph"></div>
+    </div>
+    <div class="graph_box" id="graph3">
+      <div class="title"></div><div class="graph"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="graph_box" id="graph4">
+      <div class="title"></div><div class="graph"></div>
+    </div>
+    <div class="graph_box" id="graph5">
+      <div class="title"></div><div class="graph"></div>
+    </div>
+    <div class="graph_box" id="graph6">
+      <div class="title"></div><div class="graph"></div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="d3_graphs/journeyPassRateGraph.js"></script>
+<script src="d3_graphs/originationsGrowthGraph.js"></script>
+<script src="d3_graphs/appsPerMinuteGraph.js"></script>
+<script src="d3_graphs/dealerLoansMoMGraph.js"></script>
+<script src="d3_graphs/nacoByVintageGraph.js"></script>
+
+<script type="text/javascript">
+var h = $(".graph_box .graph").height();
+var w = $(".graph_box .graph").width();
+
+$(".header_item").click(function clearHeader() {
+  var graphs = ["#graph1", "#graph2", "#graph3", "#graph4",
+                "#graph5", "#graph6"];
+
+  for (var i=0; i < graphs.length; i++) {
+    var box = d3.select(graphs[i])
+    box.select("svg").remove();
+    box.select(".title").text("");
+  }
+})
+
+$("#megan").click(function() {
+  journeyPassRateGraph("#graph1", h, w);
+  originationsGrowthGraph("#graph2", h, w);
+  appsPerMinuteGraph("#graph3", h, w);
+  dealerLoansMoMGraph("#graph4", h, w);
+  nacoByVintageGraph("#graph5", h, w);
+});
+
+$("#sid, #maj, #patrick, #nick, #john").click(function() {
+  originationsGrowthGraph("#graph1", h, w);
+  journeyPassRateGraph("#graph3", h, w);
+  nacoByVintageGraph("#graph4", h, w);
+  dealerLoansMoMGraph("#graph5", h, w);
+  appsPerMinuteGraph("#graph6", h, w);
+});
+</script>
+
+</body>
+
+</html>

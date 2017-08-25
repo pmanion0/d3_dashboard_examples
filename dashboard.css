@@ -1,0 +1,87 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font: 16px helvetica, sans-serif;
+}
+
+.header {
+  background-color: rgb(0, 58, 111);
+  text-align: center;
+  padding: 10px;
+  margin: 0px auto;
+}
+
+.header_item {
+  color: white;
+  border: solid white 1px;
+  background-color: rgb(0, 58, 131);
+  box-shadow: -1px 1px 1px black;
+  width: 100px;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px 10px 5px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin: 5px 10px 5px;
+  padding: 5px;
+  vertical-align: middle;
+
+}
+
+.graphs {
+  text-align: center;
+}
+
+.graph_box {
+  height: 300px;
+  width: 350px;
+  padding: 0px 10px;
+  margin: 5px;
+  background: lightgray;
+  display: inline-block;
+  vertical-align: middle;
+  border: solid black 1px;
+}
+
+.graph_box .title {
+  height: 30px;
+  vertical-align: middle;
+}
+
+.graph_box .graph {
+  display: inline-block;
+  height: 270px;
+  width: 100%;
+}
+
+.row {
+  margin-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+  height: 300px;
+}
+
+/* Graph Specific Styles */
+.line {
+	fill: teal;
+	stroke: teal;
+	stroke-width: 0.5;
+}
+.line.safeLevel {
+  stroke: red;
+  stroke-dasharray: 5 5;
+  stroke-width: 2;
+}
+.line.danger {
+  fill: red;
+  stroke:red;
+}
